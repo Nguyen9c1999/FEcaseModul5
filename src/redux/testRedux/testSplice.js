@@ -1,6 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {login} from "../../service/userService";
-import {showTest} from "../../service/testCategory";
+import {findTest, showTest} from "../../service/testCategory";
 const initialState = {
     listTest : []
 }
@@ -11,6 +11,9 @@ const testSlice = createSlice({
         builder.addCase(showTest.fulfilled, (state, action) => {
             state.listTest = [...action.payload]
 
+        })
+        builder.addCase(findTest.fulfilled, (state, action) => {
+            state.listTest = [...action.payload]
         })
     }
 })

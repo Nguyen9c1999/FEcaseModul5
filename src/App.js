@@ -11,6 +11,7 @@ import HistoryTest from "./page/historyTest";
 import {useSelector} from "react-redux";
 import CreateQuestion from "./page/createQuestion";
 import ShowQuestion from "./page/showQuestion";
+import ChangePassword from "./page/changePassword";
 
 
 
@@ -33,6 +34,7 @@ function App() {
                 <Route path={'history'} element={<HistoryTest/>}></Route>
                 <Route path={'question/:id'} element={<CreateQuestion/>}></Route>
                 <Route path={'test/:id'} element={<ShowQuestion/>}></Route>
+                <Route path={'changePassword/:id'} element={<ChangePassword/>}></Route>
             </Route>
                 :
                 <Route path="*" element={<Login/>}/>

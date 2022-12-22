@@ -14,69 +14,48 @@ const Home = () => {
                 <NavBarHome></NavBarHome>
             </div>
 
-            <Outlet/>
-            <div>
-                <footer className="bg-light text-center text-white">
-                    {/* Grid container */}
-                    <div className="container p-4 pb-0">
-                        {/* Section: Social media */}
-                        <section className="mb-4">
-                            {/* Facebook */}
-                            <a
-                                className="btn text-white btn-floating m-1"
-                                style={{ backgroundColor: "#3b5998" }}
-                                href="#!"
-                                role="button"
-                            > Facebook
-                                <i className="fab fa-facebook-f" />
-                            </a>
-                            {/* Twitter */}
-                            <a
-                                className="btn text-white btn-floating m-1"
-                                style={{ backgroundColor: "#55acee" }}
-                                href="#!"
-                                role="button"
-                            >  Twitter
-                                <i className="fab fa-twitter" />
-                            </a>
-                            {/* Google */}
-                            <a
-                                className="btn text-white btn-floating m-1"
-                                style={{ backgroundColor: "#dd4b39" }}
-                                href="#!"
-                                role="button"
-                            > Google
-                                <i className="fab fa-google" />
-                            </a>
-                            {/* Instagram */}
-                            <a
-                                className="btn text-white btn-floating m-1"
-                                style={{ backgroundColor: "#ac2bac" }}
-                                href="#!"
-                                role="button"
-                            > Instagram
-                                <i className="fab fa-instagram" />
-                            </a>
-                            {/* Linkedin */}
+            <Outlet />
+            {/*style={{*/}
+            {/*top: "120px",*/}
+            {/*left: "0",*/}
+            {/*bottom:" 50px",*/}
+            {/*margin: "0 auto",*/}
+            {/*padding: "20px",*/}
+            {/*textAlign: "left",*/}
+            {/*overflow: "auto"}}*/}
+            {/*<div style={{background: "#222",*/}
+            {/*    color: "#ccc",*/}
+            {/*    fontWeight: "bold",*/}
+            {/*    height: "50px",*/}
+            {/*    lineHeight: "50px",*/}
+            {/*    marginBottom:"80px",*/}
+            {/*    position: "absolute",*/}
+            {/*    bottom:" 0",*/}
+            {/*    left: "0",*/}
+            {/*    width: "100%",*/}
+            {/*    textAlign:" center"}}>*/}
+            {/*    <footer  className="bg-light text-center text-white">*/}
+            {/*        /!* Grid container *!/*/}
+            {/*        <div className="container p-4 pb-0">*/}
+            {/*            /!* Section: Social media *!/*/}
 
-                        </section>
-                        {/* Section: Social media */}
-                    </div>
-                    {/* Grid container */}
-                    {/* Copyright */}
-                    <div
-                        className="text-center p-3"
-                        style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
-                    >
-                        © 2022 Copyright:
-                        <a className="text-white" href="https://mdbootstrap.com/">
-                            QUIZ
-                        </a>
-                    </div>
-                    {/* Copyright */}
-                </footer>
+            {/*            /!* Section: Social media *!/*/}
+            {/*        </div>*/}
+            {/*        /!* Grid container *!/*/}
+            {/*        /!* Copyright *!/*/}
+            {/*        <div*/}
+            {/*            className="text-center p-3"*/}
+            {/*            style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}*/}
+            {/*        >*/}
+            {/*            © 2022 Copyright:*/}
+            {/*            <a className="text-white" href="https://mdbootstrap.com/">*/}
+            {/*                QUIZ*/}
+            {/*            </a>*/}
+            {/*        </div>*/}
+            {/*        /!* Copyright *!/*/}
+            {/*    </footer>*/}
 
-            </div>
+            {/*</div>*/}
         </div>
     );
 };

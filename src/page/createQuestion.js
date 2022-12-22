@@ -41,9 +41,11 @@ const CreateQuestion = () => {
 
         numbers.map(async (number,index)=>{
             let nameAnswer = values['answer' + index]
-            let status = values['status' + index]
-            if(status==undefined){
-                status = false
+            let status = values['status']
+            if(status==index){
+                status = true
+            }else {
+                status =false
             }
             let answer = {
                 nameAnswer : nameAnswer,
@@ -83,28 +85,35 @@ const CreateQuestion = () => {
                         </label>
                     </div>
                     {createQuestion()}
-                    <button type={'button'} onClick={()=>{
-                        setNumbers([...numbers,3])
+                   <div className={'offset-4'}>
+                       <button style={{marginBottom: "10px"}} className="btn btn-outline-primary" type={'button'}
+                               onClick={() => {
+                                   setNumbers([...numbers, 3])
 
-                    }}>ADD Question</button>
-                    <button type={'button'} onClick={()=>{
-                        let newArr = numbers
-                        if(newArr.length<3){
-                            alert('khum xóa được nữa')
-                            setNumbers([...numbers])
-                            return
-                        }
-                        newArr.splice(newArr.length-1,1)
-                        setNumbers([...newArr])
-                    }}>delete</button>
+                               }}>ADD Answer
+                       </button>
+                       <button className="btn btn-outline-danger" type={'button'} onClick={() => {
+                           let newArr = numbers
+                           if (newArr.length < 3) {
+                               alert('khum xóa được nữa')
+                               setNumbers([...numbers])
+                               return
+                           }
+                           newArr.splice(newArr.length - 1, 1)
+                           setNumbers([...newArr])
+                       }} style={{marginBottom: "10px", marginLeft: "10px"}}>delete
+                       </button>
+
+                   </div>
+
                     <button  className="btn btn-primary btn-block mb-4">
-                        Send
+                        Create Question
                     </button>
                 </Form>
 
             </Formik>
             <Link to={'/home'}>
-                <button>Done</button>
+                <button class="btn btn-secondary btn-lg btn-block">Done</button>
             </Link>
 
 

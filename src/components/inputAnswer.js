@@ -13,7 +13,7 @@ const InputAnswer = (props) => {
                 <label>
                     <Field style={{position: "relative",
                         left: "45rem",
-                        top: "-32px"}} className="form-check-input" type="checkbox"  name={'status'+index}/>
+                        top: "-32px"}} className="form-check-input" type="radio"  name={'status'} value={`${index}`}/>
                 </label>
 
 

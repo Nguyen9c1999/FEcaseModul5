@@ -1,18 +1,38 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {CategoryTest} from "../service/categoryTestService";
-import {showTest} from "../service/testCategory";
+import {deleteTest, showTest} from "../service/testCategory";
 import {Link} from "react-router-dom";
 
 const ListTest = () => {
      let dataTest = useSelector(state => {
          return state.test.listTest
      })
+    let dataUser = useSelector(state => {
+      return  state.user.userNow.userFind[0].idUser
+    })
     const dispatch = useDispatch()
     useEffect(()=>{
         dispatch(CategoryTest())
         dispatch(showTest())
-    })
+    },[])
+    const displayDelete = (idUserCreate,idTest)=>{
+        console.log("1",dataTest)
+        console.log(dataUser)
+         if(idUserCreate == dataUser){
+
+             return <button class="btn btn-danger" style={{marginLeft : "8px"}} onClick={()=>{
+             handleDeleteTest(idTest)
+             }
+             }>Delete</button>
+         }
+
+         return <></>
+    }
+    const handleDeleteTest = async (idTest)=>{
+        await dispatch(deleteTest(idTest))
+        await dispatch(showTest())
+    }
     const showListTest = ()=>{
 
       return    dataTest.map(test=>{
@@ -25,10 +45,11 @@ const ListTest = () => {
                      />
                      <div className="card-body">
                          <h5 className="card-title">{test.nameTest}</h5>
-                         <div className="d-grid gap-2 d-md-block">
+                         <div className=" d-grid gap-2 d-md-block">
                            <Link to={'/home/test/'+test.idTest}>
                                <button className="btn btn-primary" type="button">Test</button>
                            </Link>
+                             {displayDelete(test.idUserCreate,test.idTest)}
                          </div>
                      </div>
                  </div>

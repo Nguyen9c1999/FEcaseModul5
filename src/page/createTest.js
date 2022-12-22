@@ -21,7 +21,7 @@ const CreateTest = () => {
     }
     const showCategory = () => {
         return <Field as="select" name="idCategory">
-            <option disabled value="">Pick a winner</option>
+            <option defaultValue={"selected"}>Category</option>
             {dataCategory.category.category.map(category => {
                 return <option value={category.idCategory}>{category.nameCategory}</option>
             })}

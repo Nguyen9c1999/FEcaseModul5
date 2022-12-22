@@ -16,3 +16,20 @@ export const showTest = createAsyncThunk(
         return res.data
     }
 )
+
+export const findTest = createAsyncThunk(
+    'test/FindTest',
+    async (data) => {
+        const res = await axios.get('http://localhost:8080/tests/findTest?name=' + data.nameTest + '&&id=' + data.idCategory)
+        return res.data
+    }
+)
+
+export const deleteTest = createAsyncThunk(
+    'test/deleteTest',
+    async (idTest)=>{
+        const res = await axios.delete('http://localhost:8080/tests/'+idTest)
+        return res.data
+    }
+)
+

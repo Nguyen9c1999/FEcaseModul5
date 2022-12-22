@@ -15,3 +15,11 @@ export const login = createAsyncThunk(
         return res.data
     }
 )
+
+export const changePassword = createAsyncThunk(
+    'user/changePassword',
+    async (data)=>{
+        const res = await axios.post('http://localhost:8080/users/changePassword/' + data.id, data)
+        return res.data
+    }
+)
