@@ -4,7 +4,8 @@ import {Field, Form, Formik} from "formik";
 import {useDispatch} from "react-redux";
 import {login} from "../service/userService";
 import {Link,useNavigate} from "react-router-dom";
-
+import {toast, ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 const Login = () => {
 
     const dispatch = useDispatch()
@@ -21,12 +22,31 @@ const Login = () => {
             localStorage.clear()
 
         }else {
-            alert('đăng nhập thành công')
-            navigate('/home')
+            showToastMessage()
+            setTimeout(()=>{
+
+                clearTimeout();
+                navigate('/home')
+
+            },2790)
+
+
         }
 
       }
+    const showToastMessage =async () => {
+        await toast.success(' Waiting Login !', {
+            position: "top-center",
+            autoClose: 1500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
 
+    };
     return (
         <div>
             <NavBar></NavBar>
@@ -63,6 +83,7 @@ const Login = () => {
 
                                                    <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                                                        <button  className="btn btn-primary btn-lg">Login</button>
+                                                       <ToastContainer />
                                                    </div>
                                                </Form>
                                            </Formik>

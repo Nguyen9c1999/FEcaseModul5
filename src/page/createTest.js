@@ -3,7 +3,8 @@ import {useDispatch, useSelector} from "react-redux";
 import {Field, Form, Formik} from "formik";
 import {createTest} from "../service/testCategory";
 import {Link, useNavigate} from "react-router-dom";
-
+import {toast, ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 const CreateTest = () => {
     let dataCategory = useSelector(state => {
         return state
@@ -16,7 +17,14 @@ const CreateTest = () => {
         values = {...values, idUserCreate: idUser}
 
         let {payload} = await dispatch(createTest(values))
-        await navigate('/home/question/' + payload.idTest)
+        showToastMessage()
+        setTimeout(()=>{
+
+            clearTimeout();
+             navigate('/home/question/' + payload.idTest)
+
+        },2050)
+
 
     }
     const showCategory = () => {
@@ -28,6 +36,19 @@ const CreateTest = () => {
 
         </Field>
     }
+    const showToastMessage =async () => {
+        await toast.success('Waiting !', {
+            position: "top-center",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
+
+    };
     return (
         <div>
 
@@ -69,6 +90,7 @@ const CreateTest = () => {
                             <button className="btn btn-primary btn-block mb-4">
                                 continue
                             </button>
+                            <ToastContainer />
                         </Form>
                     </Formik>
 
